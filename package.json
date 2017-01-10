@@ -1,0 +1,37 @@
+{
+  "name": "rdbs",
+  "version": "1.0.1",
+  "description": "Robust redis pub/sub wrapper and redis request/reply es6 implementation",
+  "author": "Andrey Shuvalov",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "ioredis": "^1.15.1",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dronbas/rdbs"
+  },
+  "keywords": [
+    "redis",
+    "request",
+    "reply",
+    "reqRep",
+    "pub",
+    "sub",
+    "publish",
+    "subscribe"
+  ],
+  "bugs": {
+    "url": "https://github.com/dronbas/rdbs/issues"
+  },
+  "homepage": "https://github.com/dronbas/rdbs#readme"
+}
