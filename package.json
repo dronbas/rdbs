@@ -1,6 +1,6 @@
 {
   "name": "rdbs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Robust redis pub/sub wrapper and redis request/reply es6 implementation",
   "author": "Andrey Shuvalov",
   "license": "MIT",
@@ -10,12 +10,17 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
-    
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.13.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --cache ."
   },
-  
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dronbas/rdbs"

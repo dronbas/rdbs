@@ -1,2 +1,2 @@
-const Rdbs = require("./lib");
-module.exports = Rdbs;
+const Rdbs = require('./lib')
+module.exports = Rdbs
