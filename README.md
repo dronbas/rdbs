@@ -29,17 +29,17 @@ It subscribes to a channel with one connection
 and publishes to that channel with the other under the hood:
 
 ```javascript
-const pubSub = rdbs.PubSub();
+const pubSub = rdbs.pubSub()
 
 pubSub.on('foo', message => {
-  console.log('first listener catched foo -> %s', message);
-});
+  console.log('first listener catch foo -> %s', message)
+})
 
-pubSub.on('foo', message =>{
-  console.log('second listener catched foo -> %s', message);
-});
+pubSub.on('foo', message => {
+  console.log('second listener catch foo -> %s', message)
+})
 
-pubSub.emit('foo','bar');
+pubSub.emit('foo', 'bar')
 
 // first listener catched foo -> bar
 // second listener catched foo -> bar
@@ -48,10 +48,10 @@ pubSub.emit('foo','bar');
 Also you can send an object (command pattern)
 
 ```javascript
-const pubSub = rdbs.PubSub();
+const pubSub = rdbs.pubSub();
 
 pubSub.on('foo', data => {
-  console.log('catched foo', data);
+  console.log('catch foo', data);
 });
 
 pubSub.emit('foo', {bar:'bar'});
@@ -63,20 +63,20 @@ If you want to get response from another app, you have to use req/rep pattern
 
 ```javascript
 
-const reqRep = rdbs.ReqRep();
+const reqRep = rdbs.reqRep();
 
 reqRep.on('req', (data, cb) => {
   console.log('catch request', data);
   //simulate async data processing
-  setTimeout(() => cb({response: 'response'}), 2000);
+  setTimeout(() => cb({ response: 'response' }), 2000);
 });
 
-reqRep.req('req', {request: 'request'})
-.then(response => {
-  console.log('reply is', response);
-}).catch((err) => {
-  // you own error handler
-});
+reqRep.req('req', { request: 'request' })
+  .then(response => {
+    console.log('reply is', response);
+  }).catch((err) => {
+    // you own error handler
+  });
 
 // catch request { request: 'request' }
 // reply is { response: 'response' }
