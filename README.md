@@ -50,6 +50,14 @@ Also you can send an object (command pattern)
 ```javascript
 const pubSub = rdbs.pubSub();
 
+pubSub.on('conect', () => {
+  // handle connection
+})
+
+pubSub.on('error', error => {
+  // handle error
+})
+
 pubSub.on('foo', data => {
   console.log('catch foo', data);
 });
@@ -64,6 +72,14 @@ If you want to get response from another app, you have to use req/rep pattern
 ```javascript
 
 const reqRep = rdbs.reqRep();
+
+reqRep.on('conect', () => {
+  // handle connection
+})
+
+reqRep.on('error', error => {
+  // handle error
+})
 
 reqRep.on('req', (data, cb) => {
   console.log('catch request', data);
