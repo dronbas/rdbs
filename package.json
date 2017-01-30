@@ -1,6 +1,6 @@
 {
   "name": "rdbs",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Robust redis pub/sub wrapper and redis request/reply es6 implementation",
   "author": "Andrey Shuvalov",
   "license": "MIT",
