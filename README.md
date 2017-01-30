@@ -11,13 +11,13 @@ npm i -S rdbs
 ### Basic Usage
 
 #### initiate the Rdbs instance
-
+Use ioredis configuration
 ```javascript
 const redisConfig = {
-  port: 6379,          // Redis port
-  host: '127.0.0.1',   // Redis host
+  port: 6379, // default
+  host: 'localhost', // default
   password: 'auth',
-  db: 0
+  db: 0 // default
 }
 const rdbs = new Rdbs(redisConfig);
 ```
