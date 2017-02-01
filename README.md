@@ -11,17 +11,24 @@ npm i -S rdbs
 ### Basic Usage
 
 #### initiate the Rdbs instance
-Use ioredis configuration
+```javascript
+const Rdbs = require('rdbs')
+```
+#### Config
+Use [ioredis](https://github.com/luin/ioredis "ioredis") configuration
+
 ```javascript
 const redisConfig = {
   port: 6379, // default
-  host: 'localhost', // default
+  host: '127.0.0.1', // default
   password: 'auth',
   db: 0 // default
 }
-const rdbs = new Rdbs(redisConfig);
 ```
-
+## Redis client
+```javascript
+const ioredis = Rdbs.createRedis(redisConfig)
+```
 ## Pub/Sub
 Here is a simple example of the API for publish/subscribe.
 The following program opens two client connections.
@@ -29,7 +36,8 @@ It subscribes to a channel with one connection
 and publishes to that channel with the other under the hood:
 
 ```javascript
-const pubSub = rdbs.pubSub()
+const Rdbs = require('rdbs')
+const pubSub = Rdbs.createPubSub(redisConfig)
 
 pubSub.on('foo', message => {
   console.log('first listener catch foo -> %s', message)
@@ -48,7 +56,7 @@ pubSub.emit('foo', 'bar')
 Also you can send an object (command pattern)
 
 ```javascript
-const pubSub = rdbs.pubSub();
+const pubSub = rdbs.createPubSub(redisConfig);
 
 pubSub.on('conect', () => {
   // handle connection
@@ -71,7 +79,7 @@ If you want to get response from another app, you have to use req/rep pattern
 
 ```javascript
 
-const reqRep = rdbs.reqRep();
+const reqRep = Rdbs.createReqRep(redisConfig);
 
 reqRep.on('conect', () => {
   // handle connection
